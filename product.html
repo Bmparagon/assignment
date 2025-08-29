@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Card</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 2rem 0;
+        }
+        
+        .product-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .product-image {
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+        
+        .price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #e74c3c;
+        }
+        
+        .product-name {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        
+        .product-description {
+            color: #6c757d;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .btn-add-cart {
+            background: linear-gradient(45deg, #007bff, #0056b3);
+            border: none;
+            border-radius: 25px;
+            padding: 0.5rem 1.5rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-add-cart:hover {
+            background: linear-gradient(45deg, #0056b3, #004085);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,123,255,0.3);
+        }
+        
+        .card-body {
+            padding: 1.5rem;
+        }
+        
+        .image-container {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .badge-new {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: #28a745;
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <form class="col-md-8 mb-4" id="form">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Name" required id="name">
+                    <input type="number" name="price" id="price" placeholder="Price" class="form-control" required>
+                    <input type="text" name="description" id="description" placeholder="Description" class="form-control" required>
+                    <!-- <input type="text" name="image" id="image" placeholder="Image URL" class="form-control"> -->
+                    <button class="btn btn-primary" type="submit">Add Product</button>
+                </div>
+            </form>
+        </div>
+        <div class="row justify-content-center" id="parent">
+            <div class="col-md-6 col-lg-4">
+                <div class="card product-card shadow-sm h-100">
+                    <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=250&fit=crop" 
+                             class="card-img-top product-image" 
+                             alt="Wireless Headphones">
+                        <span class="badge-new">New</span>
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title product-name">Premium Wireless Headphones</h5>
+                        <p class="card-text product-description flex-grow-1">
+                            Experience crystal-clear audio with our premium wireless headphones. 
+                            Featuring noise cancellation, 30-hour battery life, and premium comfort padding 
+                            for all-day listening pleasure.
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="price">$89.99</span>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Additional product cards for demonstration -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card product-card shadow-sm h-100">
+                    <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=250&fit=crop" 
+                             class="card-img-top product-image" 
+                             alt="Smart Watch">
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title product-name">Smart Fitness Watch</h5>
+                        <p class="card-text product-description flex-grow-1">
+                            Track your fitness goals with this advanced smartwatch. Features heart rate 
+                            monitoring, GPS tracking, water resistance, and 7-day battery life.
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="price">$199.99</span>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- <div class="col-md-6 col-lg-4">
+                <div class="card product-card shadow-sm h-100">
+                    <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=250&fit=crop" 
+                             class="card-img-top product-image" 
+                             alt="Running Shoes">
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title product-name">Professional Running Shoes</h5>
+                        <p class="card-text product-description flex-grow-1">
+                            Lightweight and comfortable running shoes designed for performance. 
+                            Features advanced cushioning technology and breathable mesh upper.
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="price">$129.99</span>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const form = document.getElementById('form');
+        form.addEventListener("submit", (event) => {
+            event.preventDefault();
+            const name = document.getElementById("name").value;
+            const price = document.getElementById("price").value;
+            const description = document.getElementById("description").value;
+
+            console.log(name, price, description);
+
+            const parent = document.getElementById("parent");
+
+            const div = document.createElement("div");
+            div.classList.add("col-md-6")
+            div.classList.add("col-lg-4");
+
+            div.innerHTML = `
+                <div class="card product-card shadow-sm h-100">
+                <div class="card product-card shadow-sm h-100">
+                    <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=250&fit=crop" 
+                             class="card-img-top product-image" 
+                             alt="Running Shoes">
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title product-name">${name}</h5>
+                        <p class="card-text product-description flex-grow-1">
+                           ${description}
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="price">${Number(price).toLocaleString("en-UK",{
+                                style:"currency",
+                                currency: "GPB"
+                            })}</span>
+                            
+                        </div>
+                    </div>
+                </div>
+
+            `
+            parent.appendChild(div);
+
+            form.reset();
+        });
+    </script>
+</body>
+</html>
