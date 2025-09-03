@@ -4,9 +4,17 @@
 import datetime
 
 def calculate_age(birthdate):
-    birthdate = datetime.datetime.strptime(birthdate, "%Y-%m-%d").date()
-    today = datetime.date.today()
+    try:
+        birthdate = datetime.datetime.strptime(birthdate, "%Y-%m-%d").date()
+    except ValueError:
+        print("Invalid date format. Please use YYYY-MM-DD.")
+        return
 
+    if birthdate > datetime.date.today():
+        print("Birthdate cannot be in the future.")
+        return
+
+    today = datetime.date.today()
     age = today.year - birthdate.year
 
     if (today.month, today.day) < (birthdate.month, birthdate.day):
